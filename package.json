@@ -1,7 +1,6 @@
 {
   "name": "tenzies_react",
   "private": true,
-  "homepage": "https://tarasdeveloper.github.io/tenzies-game_react/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
