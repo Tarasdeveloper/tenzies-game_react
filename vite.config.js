@@ -10,7 +10,7 @@ export default defineConfig({
     rollupOptions: {
       input: glob.sync("./src/*.html"),
     },
-    outDir: "../dist",
+    outDir: "./dist",
   },
-  plugins: [injectHTML(), react(), FullReload(["./src/**/**.html"])],
+  plugins: [react(), injectHTML(), FullReload(["./src/**/**.html"])],
 });
