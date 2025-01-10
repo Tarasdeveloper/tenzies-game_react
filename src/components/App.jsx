@@ -6,6 +6,7 @@ import ReactConfetti from 'react-confetti';
 export default function App() {
     const [dice, setDice] = useState(() => generateAllNewDice());
     const buttonRef = useRef(null);
+    const [clickCount, setClickCount] = useState(0);
 
     const gameWon =
         dice.every((die) => die.isHeld) &&
@@ -33,6 +34,7 @@ export default function App() {
 
     function rollDice() {
         if (!gameWon) {
+            setClickCount((prevCount) => prevCount + 1);
             setDice((oldDice) =>
                 oldDice.map((die) =>
                     die.isHeld
@@ -41,6 +43,7 @@ export default function App() {
                 )
             );
         } else {
+            setClickCount(0);
             setDice(generateAllNewDice());
         }
     }
@@ -76,6 +79,9 @@ export default function App() {
             <p className="instructions">
                 Roll until all dice are the same. Click each die to freeze it at
                 its current value between rolls.
+            </p>
+            <p className="click-counter">
+                Number of rolls: <strong>{clickCount}</strong>
             </p>
             <div className="dice-container">{diceElements}</div>
             <button ref={buttonRef} className="roll-dice" onClick={rollDice}>
