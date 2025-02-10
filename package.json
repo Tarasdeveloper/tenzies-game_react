@@ -1,12 +1,11 @@
 {
   "name": "tenzies_react",
   "private": true,
-  "homepage": "https://tarasdeveloper.github.io/tenzies-game_react/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/tenzies-game_react/",
+    "build": "vite build --base=/tenzies-game_react/ --emptyOutDir",
     "lint": "eslint .",
     "preview": "vite preview"
   },

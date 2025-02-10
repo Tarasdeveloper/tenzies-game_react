@@ -1,16 +1,14 @@
-import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
-import { glob } from "glob";
-import injectHTML from "vite-plugin-html-inject";
-import FullReload from "vite-plugin-full-reload";
+import react from "@vitejs/plugin-react-swc";
+import svgr from 'vite-plugin-svgr';
 
 export default defineConfig({
-  root: "src",
-  build: {
-    rollupOptions: {
-      input: glob.sync("./src/*.html"),
+  plugins: [react(), svgr()],
+  resolve: {
+    alias: {
+      src: '/src',
+      components: '/src/components',
     },
-    outDir: "./dist",
   },
-  plugins: [react(), injectHTML(), FullReload(["./src/**/**.html"])],
+  base: '/react_vite/',
 });
